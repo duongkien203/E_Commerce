@@ -1,0 +1,163 @@
+.containerLogin {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  width: 400px;
+  margin: auto;
+}
+
+.form {
+  background-color: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 25px;
+}
+
+.form h3 {
+  text-align: center;
+  font-size: 22px;
+  margin: 0px;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.formGroup label {
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #444;
+}
+
+.formGroup input {
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  transition: all 0.3s ease-in-out;
+}
+
+.formGroup input:hover,
+.formGroup input:focus {
+  border-color: #12cbc4;
+  box-shadow: 0px 0px 6px rgba(18, 203, 196, 0.3);
+  outline: none;
+}
+.passwordWrapper {
+  position: relative;
+}
+.passwordWrapper input {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.passwordWrapper span {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 12px;
+}
+
+.invalid input {
+  border-color: red;
+  background-color: #ffe5e5;
+}
+
+.invalid span {
+  margin-top: 4px;
+  font-size: 13px;
+  color: red;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+}
+
+.errorMessage {
+  border: 1px solid rgba(255, 0, 0, 0.5); /* Viền đỏ nhạt */
+  background-color: rgba(255, 0, 0, 0.1); /* Nền đỏ rất nhạt */
+  color: #cc0000; /* Chữ đỏ dịu hơn */
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: 350;
+  text-align: center;
+  margin: 10px 0px;
+  box-shadow: 0px 0px 5px rgba(255, 0, 0, 0.3); /* Đổ bóng nhẹ hơn */
+  animation: shake 0.3s ease-in-out;
+}
+
+.formSubmit {
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #12cbc4;
+  color: #ffffff;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.formSubmit:hover {
+  background-color: #0fa3a0;
+}
+
+.forgotPassword {
+  text-align: start;
+  margin: 0px 0px 10px;
+}
+
+.forgotPassword a {
+  font-size: 14px;
+  color: #12cbc4;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.forgotPassword a:hover {
+  color: #0fa3a0;
+  text-decoration: underline;
+}
+
+.register {
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.6); /* Mờ chữ */
+  margin-top: 20px;
+}
+
+.register a {
+  font-weight: bold;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.register a:hover {
+  color: #12cbc4;
+}
+
+.disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}

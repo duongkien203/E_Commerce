@@ -1,0 +1,124 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Hiệu ứng xuất hiện */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #e74c3c;
+}
+
+.closeButton:hover {
+  color: #c0392b;
+}
+
+.detailsContainer {
+  color: #34495e;
+}
+
+.detailsContainer h2 {
+  margin-bottom: 15px;
+  text-align: center;
+  color: #2c3e50;
+}
+
+.detailsContainer h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #34495e;
+}
+
+.invoiceInfo {
+  margin-bottom: 20px;
+}
+
+.invoiceInfo p {
+  margin-bottom: 8px;
+}
+
+.productTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.productTable th,
+.productTable td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.productTable th {
+  background: #007bff;
+  color: white;
+}
+
+.productTable td:first-child {
+  text-align: left; /* Căn trái cho tên sản phẩm */
+  word-wrap: break-word; /* Đảm bảo xuống dòng nếu tên quá dài */
+  white-space: normal; /* Cho phép nội dung tự xuống dòng */
+}
+
+.salePrice {
+  font-weight: bold;
+  color: #27ae60;
+}
+
+.originalPrice {
+  text-decoration: line-through;
+  margin-left: 5px;
+  color: #e74c3c;
+}
+
+.summary {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.summary p {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.summary strong {
+  color: #2c3e50;
+}

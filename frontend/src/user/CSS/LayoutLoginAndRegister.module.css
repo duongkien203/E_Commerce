@@ -1,0 +1,32 @@
+html,
+body {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.appContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.contentContainer {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+}
+
+/* Laptop */
+@media (max-width: 1280px) {
+  .contentContainer {
+    width: 100%;
+  }
+}

@@ -1,0 +1,153 @@
+.searchContainer {
+  margin-bottom: 20px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.invoiceTabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.invoiceTabs button {
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  background: #ddd;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.invoiceTabs button.active {
+  background: #007bff;
+  color: white;
+}
+
+.invoiceTabs button:hover {
+  background: #0056b3;
+  color: white;
+}
+
+.invoiceContent {
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.invoiceTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.invoiceTable th,
+.invoiceTable td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.invoiceTable th {
+  background: #007bff;
+  color: white;
+}
+
+.noData {
+  text-align: center;
+  color: #e74c3c;
+  font-weight: bold;
+  padding: 20px;
+}
+
+/* Style cho trạng thái */
+.statusPending {
+  color: #e67e22; /* Màu cam cho "Chờ xác nhận" */
+  font-weight: bold;
+}
+
+.statusShipping {
+  color: #f1c40f; /* Màu vàng cho "Đang giao" */
+  font-weight: bold;
+}
+
+.statusCompleted {
+  color: #2ecc71; /* Màu xanh lá cho "Hoàn thành" */
+  font-weight: bold;
+}
+
+.buttonGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.viewButton,
+.confirmButton,
+.paymentButton,
+.deliveredButton,
+.cancelButton {
+  margin: 0;
+  padding: 8px 12px; /* Sử dụng padding đồng nhất */
+  border: none;
+  border-radius: 5px; /* Sử dụng border-radius đồng nhất */
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s; /* Thêm hiệu ứng hover mượt mà */
+}
+
+.viewButton {
+  background: #28a745; /* Xanh lá nhạt (xem chi tiết) */
+  color: white;
+}
+
+.viewButton:hover {
+  background: #218838; /* Xanh lá đậm hơn khi hover */
+}
+
+.confirmButton {
+  background: #007bff; /* Xanh dương */
+  color: white;
+}
+
+.confirmButton:hover {
+  background: #0056b3; /* Xanh dương đậm hơn khi hover */
+}
+
+.paymentButton {
+  background-color: #ffc107; /* Vàng sáng */
+  color: white;
+}
+
+.paymentButton:hover {
+  background-color: #e0a800; /* Vàng cam đậm hơn khi hover */
+}
+
+.deliveredButton {
+  background-color: #4caf50; /* Xanh lá cây (đã giao) */
+  color: white;
+}
+
+.deliveredButton:hover {
+  background-color: #45a049; /* Xanh lá cây đậm hơn khi hover */
+}
+
+.cancelButton {
+  background-color: #f44336; /* Đỏ (hủy) */
+  color: white;
+}
+
+.cancelButton:hover {
+  background-color: #da190b; /* Đỏ đậm hơn khi hover */
+}
+
+.statusCancelled {
+  color: #dc3545; /* Màu đỏ cho trạng thái đã hủy */
+  font-weight: bold;
+}

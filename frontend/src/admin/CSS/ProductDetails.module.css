@@ -1,0 +1,194 @@
+.containerProductDetails {
+  width: 100%;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin: 0px auto;
+  max-width: 1280px;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+  color: #2c3e50;
+}
+
+.containerProductDetails h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #34495e;
+  text-align: center;
+}
+
+.searchBar {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.inputGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.inputGroup input {
+  width: 250px;
+  margin: 0px;
+  padding: 10px;
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.inputGroup select {
+  margin: 0px;
+  height: 100%;
+}
+
+.inputGroup input:focus {
+  outline: none;
+  border-color: #1abc9c;
+  box-shadow: 0px 4px 8px rgba(26, 188, 156, 0.2);
+}
+
+.searchBar button {
+  width: auto;
+  white-space: nowrap;
+  margin: 0px;
+  padding: 10px 20px;
+  background-color: #1abc9c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.inputGroup button:hover {
+  background-color: #16a085;
+  transform: translateY(-2px);
+}
+
+.titleButtonContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  gap: 10px; /* Khoảng cách giữa các nút */
+}
+
+.addButton {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.addButton:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+.deleteMultipleButton {
+  padding: 10px 20px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.deleteMultipleButton:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+}
+
+.productDetailsTable {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.productDetailsTable th,
+.productDetailsTable td {
+  padding: 15px;
+  text-align: left;
+  border: 1px solid #ecf0f1;
+}
+
+.productDetailsTable th {
+  background-color: #34495e;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.productDetailsTable tr:nth-child(even) {
+  background-color: #f8f9f9;
+}
+
+.productDetailsTable tr:hover {
+  background-color: #f0f7f4;
+}
+
+.actionButtons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.editButton,
+.deleteButton {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.editButton {
+  background-color: #f39c12;
+  color: white;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.editButton:hover {
+  background-color: #e67e22;
+  transform: translateY(-2px);
+}
+
+.deleteButton {
+  background-color: #e74c3c;
+  color: white;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.deleteButton:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+}
+
+.errorMessage {
+  color: #e74c3c;
+  font-size: 14px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.noData {
+  text-align: center;
+  font-size: 16px;
+  padding: 20px;
+  color: #7f8c8d;
+}

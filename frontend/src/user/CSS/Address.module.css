@@ -1,0 +1,62 @@
+.addressContainer h2 {
+  margin: 0px 0px 10px;
+}
+
+.addButton {
+  padding: 10px;
+  border: none;
+  background: #28a745;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.addressList {
+  margin-top: 20px;
+}
+
+.addressItem {
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.actions {
+  margin-top: 10px;
+}
+
+.editButton {
+  background: #ffc107;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.deleteButton {
+  background: #dc3545;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+}
+
+.isDefault span {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  display: inline-block;
+  border: 1px solid #ee4d2d;
+  border-radius: 4px;
+  color: #ee4d2d;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 3px 6px;
+  text-transform: capitalize;
+  background-color: rgba(238, 77, 45, 0.1);
+  width: max-content;
+}

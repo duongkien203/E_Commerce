@@ -1,0 +1,520 @@
+:root {
+  --theme-color: #ff7f50; /* Cam san hô */
+  --hover-color: #ff6347; /* Cam đỏ */
+  --body-color: #333;
+  --input-chat-color: #aaa;
+}
+
+.headerContainer {
+  width: 100%;
+  padding: 15px 0px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+}
+
+.header {
+  width: 1200px;
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo h1 {
+  font-size: 1.8rem;
+  font-family: var(--body-font);
+  color: var(--theme-color);
+}
+
+.headerTitle {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+  margin-right: auto;
+}
+
+.headerTitle span {
+  font-size: 20px;
+}
+
+/* Thanh tìm kiếm mặc định cho desktop */
+.desktopSearch {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  margin: 0 20px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Input trong thanh tìm kiếm */
+.searchBar input {
+  width: 100%;
+  padding: 10px 40px 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  font-size: 1rem;
+  font-family: var(--body-font);
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.searchBar input:focus {
+  outline: none;
+  border-color: var(--theme-color);
+  box-shadow: 0 0 8px rgba(11, 232, 129, 0.3);
+}
+
+.searchBar input::placeholder {
+  color: var(--input-chat-color);
+}
+
+/* Nút tìm kiếm trong thanh tìm kiếm */
+.searchBar button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--theme-color);
+  font-size: 1.2rem;
+  padding: 5px;
+  transition: color 0.3s ease;
+}
+
+.searchButton:hover {
+  color: var(--hover-color);
+}
+
+/* Hiển thị icon tìm kiếm trên mobile */
+.mobileSearch {
+  display: none;
+  position: relative;
+}
+
+.searchIconButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--theme-color);
+  font-size: 1.5rem;
+  padding: 5px;
+  transition: color 0.3s ease;
+}
+
+.searchIconButton:hover {
+  color: var(--hover-color);
+}
+
+/* Dropdown SearchBox cho mobile với tam giác */
+.searchBoxDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 250px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+/* Tạo tam giác cho SearchBox dropdown */
+.searchBoxDropdown::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #ddd;
+}
+
+/* Lớp trong của tam giác để tạo hiệu ứng liền mạch với nền */
+.searchBoxDropdown::after {
+  content: "";
+  position: absolute;
+  top: -9px;
+  left: 10px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #fff;
+  z-index: 1;
+}
+
+.searchBoxDropdown input {
+  flex-grow: 1;
+  margin: 0;
+  padding: 8px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  font-family: var(--body-font);
+  position: relative;
+  z-index: 2;
+}
+
+.searchBoxDropdown input:focus {
+  outline: none;
+}
+
+.searchBoxDropdown button {
+  background: none;
+  border: none;
+  padding: 8px;
+  color: var(--theme-color);
+  cursor: pointer;
+  transition: color 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.searchBoxDropdown button:hover {
+  color: var(--hover-color);
+}
+
+/* Nút hamburger cho mobile */
+.hamburgerButton {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--theme-color);
+  font-size: 1.5rem;
+  padding: 5px;
+  transition: color 0.3s ease;
+}
+
+.hamburgerButton:hover {
+  color: var(--hover-color);
+}
+
+/* Sidebar cho mobile */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background: #fff;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 1001; /* Cao hơn header để đè lên */
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  padding-top: 15px; /* Thêm padding cho nút đóng */
+}
+
+.sidebar.active {
+  transform: translateX(0);
+}
+
+.sidebarMenu {
+  list-style: none;
+  padding: 0 20px; /* Giảm padding để tối ưu không gian */
+  margin: 0;
+}
+
+.sidebarMenu li {
+  margin: 20px 0;
+}
+
+.sidebarMenu a {
+  text-decoration: none;
+  color: var(--body-color);
+  font-weight: 500;
+  font-family: var(--body-font);
+  transition: color 0.3s ease;
+  display: block; /* Làm cho liên kết rộng toàn bộ sidebar */
+  padding: 10px 15px; /* Thêm padding cho vùng chạm tốt hơn */
+  border-radius: 5px; /* Thêm bo tròn nhẹ */
+}
+
+.sidebarMenu a:hover {
+  color: var(--theme-color);
+  background-color: #f4f4f4; /* Thêm nền hover */
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--body-color);
+  cursor: pointer;
+}
+
+/* Header links */
+.headerLinks {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.headerLinks li {
+  margin-left: 20px;
+}
+
+.headerLinks a {
+  text-decoration: none;
+  color: var(--body-color);
+  font-weight: 500;
+  font-family: var(--body-font);
+  position: relative;
+  transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+.headerLinks a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 50%;
+  background-color: var(--theme-color);
+  transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.headerLinks a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.headerLinks a:hover {
+  color: var(--theme-color);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Chỉ hiển thị link trên desktop */
+.desktopLink {
+  display: block;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logoImage {
+  width: 60px;
+  height: auto;
+  margin: 0px;
+}
+
+.cartIconContainer {
+  position: relative;
+}
+
+.cartBadge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar {
+  font-size: 24px;
+}
+
+.accountInfo img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.accountInfo {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.profileLink {
+  display: flex;
+  align-items: center;
+}
+
+.profileLink span {
+  margin-left: 5px;
+}
+
+.notificationIcon {
+  position: relative;
+}
+
+.notificationPanel,
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  right: -8px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 0;
+  margin: 5px 0px;
+  list-style: none;
+  display: block;
+}
+
+.dropdownMenu li,
+.notificationPanel li {
+  margin: 0;
+  padding: 10px 25px;
+  white-space: nowrap;
+  text-decoration: none;
+  color: #333;
+  display: block;
+  font-weight: 600;
+}
+
+.dropdownMenu li:hover,
+.notificationPanel li:hover {
+  cursor: pointer;
+  background-color: #f4f4f4;
+  color: #0be881;
+}
+
+.notificationPanel::before,
+.dropdownMenu::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #ccc;
+}
+
+.notificationItem {
+  padding: 12px;
+  border-bottom: 1px solid #ececec;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.notificationItem:last-child {
+  border-bottom: none;
+}
+
+.notificationItem:hover {
+  background: #f9f9f9;
+}
+
+.notificationTitle {
+  font-weight: 700;
+  font-size: 15px;
+  color: #2d3436;
+  margin-bottom: 4px;
+}
+
+.notificationMessage {
+  font-size: 13px;
+  color: #636e72;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.notificationTime {
+  font-size: 12px;
+  color: #b2bec3;
+  text-align: right;
+  font-style: italic;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .desktopSearch {
+    display: none;
+  }
+
+  .mobileSearch {
+    display: block;
+    margin: 0 20px;
+  }
+
+  .hamburgerButton {
+    display: block;
+    margin: 0 20px;
+  }
+
+  .desktopLink {
+    display: none; /* Ẩn 3 link trên mobile */
+  }
+
+  .header {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .headerLinks {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .headerLinks li {
+    margin: 5px 10px;
+  }
+
+  /* Hiển thị sidebar khi active */
+  .sidebar.active {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .mobileSearch,
+  .hamburgerButton {
+    display: flex;
+    align-items: center;
+    margin: 0px; /* Giảm margin cho màn hình nhỏ hơn */
+  }
+
+  .searchBoxDropdown {
+    width: 200px; /* Giảm chiều rộng trên mobile nhỏ */
+  }
+}
+
+@media (max-width: 1280px) {
+  .headerContainer {
+    box-sizing: border-box;
+    padding: 15px 10px;
+  }
+  .header {
+    width: 100%;
+    margin: 0px;
+  }
+}

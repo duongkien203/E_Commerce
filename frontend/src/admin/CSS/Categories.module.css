@@ -1,0 +1,133 @@
+.categoriesContainer {
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.categoriesHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.categoriesTitle {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.headerActions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.searchInput {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  width: 200px;
+  transition: border-color 0.3s ease;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+.addCategoryButton {
+  margin-left: auto;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.addCategoryButton:hover {
+  background-color: #0056b3;
+}
+
+.categoriesTable {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+.categoriesTable th,
+.categoriesTable td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.categoriesTable th {
+  background-color: #f2f2f2;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.editButton,
+.deleteButton {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.editButton {
+  background-color: #ffc107;
+  color: white;
+}
+
+.editButton:hover {
+  background-color: #e0a800;
+}
+
+.deleteButton {
+  background-color: #dc3545;
+  color: white;
+}
+
+.deleteButton:hover {
+  background-color: #c82333;
+}
+
+.deleteMultipleButton {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.deleteMultipleButton:hover {
+  background-color: #cc0000;
+}
+
+.categoriesTable th:first-child,
+.categoriesTable td:first-child {
+  text-align: center;
+  width: 50px;
+}
+
+.categoriesTable th:first-child input,
+.categoriesTable td:first-child input {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.noData {
+  text-align: center;
+  padding: 20px;
+  color: #7f8c8d;
+  font-size: 16px;
+  font-style: italic;
+}

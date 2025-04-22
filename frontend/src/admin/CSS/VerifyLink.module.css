@@ -1,0 +1,146 @@
+.verifyContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  background-color: #f5f5f5;
+}
+
+.verify {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  position: relative;
+}
+
+.arrowBack {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  color: #4caf50;
+}
+
+.securityIcon {
+  font-size: 50px;
+  color: #4caf50;
+  margin-bottom: 20px;
+}
+
+.verifyText {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.verify p {
+  margin: 10px 0;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  margin: 18px 0px;
+}
+
+.formGroup input {
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  transition: all 0.3s ease-in-out;
+}
+
+.formGroup input:hover,
+.formGroup input:focus {
+  border-color: #12cbc4;
+  box-shadow: 0px 0px 6px rgba(18, 203, 196, 0.3);
+  outline: none;
+}
+
+.invalid input {
+  border-color: red;
+  background-color: #ffe5e5;
+}
+
+.invalid span {
+  margin-top: 4px;
+  font-size: 15px;
+  color: red;
+}
+
+.notification {
+  font-size: 15px;
+  color: red;
+}
+
+.resendButton {
+  background-color: transparent; /* Nền trong suốt */
+  color: #4caf50; /* Màu chữ xanh lá */
+  font-size: 16px; /* Kích thước chữ */
+  font-weight: bold; /* Chữ đậm */
+  cursor: pointer; /* Con trỏ chuột */
+  padding: 8px 16px; /* Khoảng cách lề */
+  margin-top: 10px; /* Khoảng cách trên */
+  border: 2px solid #4caf50; /* Viền xanh lá */
+  border-radius: 6px; /* Bo góc */
+  transition: all 0.3s ease-in-out; /* Hiệu ứng mượt */
+}
+
+.resendButton:hover {
+  background-color: #4caf50; /* Đổi màu nền khi hover */
+  color: white; /* Chữ trắng */
+}
+
+/* Add this to VerifyLink.module.css */
+.resendButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+}
+
+.success {
+  border: 1px solid rgba(0, 128, 0, 0.5); /* Viền xanh nhạt */
+  background-color: rgba(0, 255, 0, 0.1); /* Nền xanh nhạt */
+  color: green; /* Chữ xanh */
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: 350;
+  text-align: center;
+  margin: 10px 0px;
+  box-shadow: 0px 0px 5px rgba(0, 255, 0, 0.3); /* Đổ bóng xanh */
+  animation: shake 0.3s ease-in-out;
+}
+
+.error {
+  border: 1px solid rgba(255, 0, 0, 0.5); /* Viền đỏ nhạt */
+  background-color: rgba(255, 0, 0, 0.1); /* Nền đỏ nhạt */
+  color: #cc0000; /* Chữ đỏ */
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: 350;
+  text-align: center;
+  margin: 10px 0px;
+  box-shadow: 0px 0px 5px rgba(255, 0, 0, 0.3); /* Đổ bóng đỏ */
+  animation: shake 0.3s ease-in-out;
+}

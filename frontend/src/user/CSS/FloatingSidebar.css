@@ -1,0 +1,73 @@
+/* CSS cho thanh sidebar */
+.floating-sidebar {
+  position: fixed;
+  top: 60%;
+  right: 0;
+  width: 40px;
+  height: auto;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  transition: all 0.3s ease; /* Hiệu ứng mượt khi mở/đóng */
+  z-index: 1000;
+}
+
+.floating-sidebar.closed {
+  right: -35px; /* Đẩy thanh ra ngoài khi đóng */
+}
+
+.icons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin-top: 30px; /* Khoảng cách từ mũi tên tới các icon */
+}
+
+.icon {
+  box-sizing: border-box;
+  width: 30px; /* Kích thước nhỏ hơn */
+  height: 30px; /* Kích thước nhỏ hơn */
+  display: flex;
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  text-decoration: none;
+  color: #333;
+  font-size: 20px; /* Kích thước icon */
+  margin: 5px 0;
+  padding: 0; /* Bỏ padding nếu không cần thiết */
+  text-align: center;
+  border-radius: 50%; /* Đảm bảo icon có dạng hình tròn */
+  transition: background-color 0.3s;
+}
+
+.icon:hover {
+  background-color: #ddd;
+}
+
+.facebook {
+  background-color: #3b5998;
+  color: white;
+}
+
+.zalo {
+  background-color: #0088cc;
+  color: white;
+}
+
+.sidebar-toggle {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.floating-sidebar.closed .sidebar-toggle {
+  left: -15px;
+  background-color: #ffffff;
+  color: #3d3d3d;
+  border-radius: 5px 0 0 5px;
+  padding: 5px 0px;
+}

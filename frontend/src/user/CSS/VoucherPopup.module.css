@@ -1,0 +1,150 @@
+.popupOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.popupContent {
+  background: white;
+  width: 400px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Hiệu ứng mở popup */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.popupContent h2 {
+  margin-bottom: 20px;
+}
+
+.voucherList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.voucherItem {
+  display: flex;
+  align-items: center;
+  background: #f0e9cc; /* Màu nền nổi bật */
+  margin-bottom: 10px;
+  border-radius: 5px;
+  gap: 10px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  padding: 10px;
+  border: 2px solid transparent; /* Mặc định không có viền */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bóng đổ nhẹ */
+}
+
+.voucherItem:hover {
+  background: #ffd700; /* Màu nền khi hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Bóng đổ khi hover */
+}
+
+/* Làm mờ voucher chưa kích hoạt */
+.disabledVoucher {
+  background-color: #e9ecef !important;
+  opacity: 0.5;
+  pointer-events: none; /* Không cho tương tác */
+}
+
+.voucherItem img {
+  padding-left: 10px;
+}
+
+.voucherItem:hover {
+  background: #e9ecef;
+}
+
+.voucherLabel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  padding: 10px;
+  cursor: pointer;
+  width: 100%;
+  position: relative;
+}
+
+.voucherLabel p {
+  margin: 0px;
+}
+
+.voucherLabel span {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 14px;
+}
+
+.voucherLabel input {
+  width: auto;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0px !important;
+  right: 10px;
+  accent-color: #007bff;
+  cursor: pointer;
+}
+
+.popupActions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.backBtn,
+.confirmBtn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.backBtn {
+  background: #6c757d;
+  color: white;
+  margin-right: 10px;
+}
+
+.backBtn:hover {
+  background: #5a6268;
+}
+
+.confirmBtn {
+  background: #007bff;
+  color: white;
+}
+
+.confirmBtn:disabled {
+  background: #b0bec5;
+  cursor: not-allowed;
+}
+
+.confirmBtn:hover:not(:disabled) {
+  background: #0056b3;
+}

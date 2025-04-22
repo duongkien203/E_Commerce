@@ -1,0 +1,111 @@
+.contactContainer {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.intro {
+  font-size: 1.2em;
+  margin-bottom: 40px;
+  text-align: center;
+  color: #777;
+}
+
+.contactDetails {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.contactItem h2,
+.contactItem p {
+  display: block;
+  width: 100%;
+}
+
+.contactItem {
+  width: 45%;
+  margin-bottom: 20px;
+}
+
+.subHeader {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.formGroup label {
+  font-size: 1em;
+  color: #666;
+}
+
+.input,
+.textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1em;
+  color: #333;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: #999;
+  outline: none;
+}
+
+.select {
+  width: 100%;
+  margin: 0px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #fff;
+}
+
+.textarea {
+  height: 250px;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: #4caf50;
+  font-size: 1.2em;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submitButton:hover {
+  background-color: #45a049;
+}

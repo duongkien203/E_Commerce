@@ -1,0 +1,97 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.popup h2 {
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #2c3e50;
+}
+
+.popup label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #34495e;
+}
+
+.popup input,
+.popup textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.popup select {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: 14px;
+  color: #2c3e50;
+}
+
+.popup select:focus {
+  outline: none;
+  border-color: #1abc9c;
+  box-shadow: 0 0 5px rgba(26, 188, 156, 0.5);
+}
+
+.popup textarea {
+  height: 100px;
+  resize: none;
+}
+
+.btnGroup {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.btnGroup button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btnGroup button[type="submit"] {
+  background: #1abc9c;
+  color: white;
+}
+
+.btnGroup button[type="submit"]:hover {
+  background: #16a085;
+}
+
+.btnGroup button[type="button"] {
+  background: #e74c3c;
+  color: white;
+}
+
+.btnGroup button[type="button"]:hover {
+  background: #c0392b;
+}

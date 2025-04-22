@@ -1,0 +1,153 @@
+/* Sidebar Styling */
+.sidebar {
+  box-sizing: border-box;
+  width: 250px;
+  height: 100vh;
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  color: white;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  overflow-y: overlay; /* Giữ nguyên width, không bị thu nhỏ */
+  transition: all 0.3s ease;
+}
+
+/* Tùy chỉnh thanh cuộn cho Chrome, Edge và Safari */
+.sidebar::-webkit-scrollbar {
+  width: 8px; /* Độ rộng của thanh cuộn */
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent; /* Nền trong suốt */
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3); /* Màu thanh cuộn */
+  border-radius: 4px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5); /* Màu khi hover */
+}
+
+/* Menu List Styling */
+.sidebar ul {
+  list-style: none;
+  margin: 20px 0px 10px;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 15px 0;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.sidebar ul li:hover {
+  transform: translateX(10px);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+/* Link Styling */
+.sidebar ul li a,
+.menuLink {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.sidebar ul li a:hover,
+.menuLink:hover {
+  color: #1abc9c;
+}
+
+/* Icon Styling */
+.icon {
+  margin-right: 10px;
+  font-size: 18px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.sidebar ul li:hover .icon {
+  transform: rotate(15deg);
+  color: #1abc9c;
+}
+
+/* Close Button */
+.closeButton {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.closeButton:hover {
+  color: #e74c3c;
+  transform: scale(1.1);
+}
+
+.closeIcon {
+  font-size: 40px;
+  transition: transform 0.3s ease;
+}
+
+.closeIcon:hover {
+  transform: scale(1.2);
+}
+
+/* Submenu */
+.subMenu {
+  list-style: none;
+  max-height: 0; /* Ẩn submenu */
+  overflow: hidden;
+  margin: 0px !important;
+  padding-left: 34px !important;
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+  opacity: 0;
+}
+
+/* Submenu Hiện */
+.subMenu.open {
+  padding: 2px 2px 2px 34px !important;
+  max-height: 300px; /* Giá trị đủ lớn để submenu mở hết */
+  opacity: 1;
+}
+
+.arrowIcon {
+  margin-left: auto;
+  transition: transform 0.3s ease;
+}
+
+/* Hiệu ứng hover submenu */
+.subMenuItem {
+  transition: transform 0.3s ease, background 0.3s ease;
+  margin: 5px !important;
+}
+
+.subMenuItem a {
+  color: #bdc3c7;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.subMenuItem:hover {
+  transform: translateX(-10px) !important;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+.active {
+  background-color: #4caf50; /* Màu nền khi active */
+  color: white; /* Chữ màu trắng */
+  border-radius: 5px; /* Bo tròn */
+  font-weight: bold;
+}

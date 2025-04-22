@@ -1,0 +1,101 @@
+.containerProductImages {
+  width: 100%;
+  margin: auto;
+  font-family: Arial, sans-serif;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.inputGroupProductImages {
+  margin-bottom: 15px;
+}
+
+.inputGroupProductImages label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input,
+select {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.buttonContainerProductImages {
+  display: flex;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.buttonContainerProductImages div {
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+}
+
+.buttonContainerProductImages button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.buttonContainerProductImages button:hover {
+  background-color: #0056b3;
+}
+
+.errorProductImages {
+  color: red;
+  text-align: center;
+}
+
+.imageListProductImages {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 cột trên mỗi hàng */
+  gap: 15px;
+  justify-content: center;
+  max-width: 1200px; /* Đảm bảo không chiếm toàn bộ màn hình */
+  margin: 0 auto; /* Căn giữa */
+}
+
+.imageCardProductImages {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column; /* Sắp xếp các phần tử theo chiều dọc */
+  justify-content: space-between; /* Tạo khoảng cách đều giữa ảnh và chữ */
+  min-height: 220px; /* Đảm bảo chiều cao tối thiểu để căn thẳng */
+}
+
+.productImage {
+  max-width: 100%;
+  max-height: 150px;
+  margin-top: 10px;
+  border-radius: 5px;
+  object-fit: contain; /* Giữ tỷ lệ ảnh và đảm bảo ảnh nằm trong khung */
+}
+
+.imageCardProductImages p {
+  margin: 0; /* Xóa margin mặc định */
+  padding-top: 5px; /* Thêm khoảng cách giữa ảnh và chữ */
+  font-size: 16px; /* Điều chỉnh kích thước chữ */
+  font-weight: bold; /* Làm chữ đậm hơn */
+  color: #333; /* Đặt màu chữ (xám đậm) */
+  text-align: center; /* Căn giữa chữ */
+  line-height: 1.4; /* Tăng khoảng cách dòng để chữ dễ đọc */
+  font-family: "Arial", sans-serif; /* Đặt font chữ thân thiện và dễ đọc */
+  text-transform: capitalize; /* Viết hoa chữ cái đầu mỗi từ */
+}

@@ -1,0 +1,88 @@
+/* Layout chính */
+.adminContainer {
+  display: flex;
+  height: 100vh;
+  transition: margin-left 0.3s ease;
+}
+
+/* Sidebar */
+.sidebarWrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: #2c3e50;
+  overflow-y: auto;
+  transition: transform 0.3s ease-in-out, width 0.3s ease;
+  z-index: 1000;
+}
+
+/* Khi sidebar đóng */
+.sidebarWrapper.hidden {
+  transform: translateX(-100%);
+}
+
+/* Khi mở sidebar */
+.sidebarWrapper.open {
+  transform: translateX(0);
+}
+
+/* Phần bên phải (Header + Content) */
+.rightContainer {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  transition: margin-left 0.3s ease;
+  margin-left: 250px; /* Đẩy content sang phải khi sidebar mở */
+  width: calc(100% - 250px);
+}
+
+/* Khi sidebar đóng, content chiếm toàn bộ */
+.adminContainer.sidebarClosed .rightContainer {
+  margin-left: 0;
+  width: 100%;
+}
+
+/* Header */
+.header {
+  height: 60px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  border-bottom: 2px solid #ddd;
+}
+
+/* Nội dung chính */
+.adminContent {
+  flex-grow: 1;
+  background-color: #f5f5f5;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+/* Nút mở sidebar */
+.toggleButton {
+  background: #34495e;
+  color: white;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  cursor: pointer;
+  position: fixed;
+  top: 65px;
+  left: 20px;
+  border-radius: 8px;
+  transition: background 0.3s ease, transform 0.3s ease;
+  z-index: 1100;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.toggleButton:hover {
+  background: #1a252f;
+  transform: scale(1.05);
+}

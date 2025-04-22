@@ -1,0 +1,20 @@
+.ratingParent {
+  display: flex;
+  align-items: center;
+}
+
+.ratingParent span {
+  margin-right: 6px;
+}
+.star {
+  color: #ffaa00;
+}
+
+.hiddenStar {
+  color: #ccc !important;
+}
+
+.starHalf {
+  color: gold; /* Sao đầy một phần, vẫn giữ màu vàng */
+  opacity: 0.5; /* Màu vàng nhạt hơn một chút nếu muốn thể hiện sao chưa đầy */
+}

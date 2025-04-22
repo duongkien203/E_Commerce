@@ -1,0 +1,133 @@
+.notificationsContainer {
+  width: 100%;
+  max-width: 1200px; /* Center content with a maximum width */
+  margin: 0 auto; /* Center horizontally */
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: "Arial", sans-serif;
+  color: #333;
+  overflow: auto;
+}
+
+.notificationsContainer h2 {
+  margin-top: 0;
+  font-size: 28px;
+  text-align: center; /* Centered heading */
+  color: #007bff;
+}
+
+.headerActions input {
+  margin-bottom: 20px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.addButton {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.addButton:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+.deleteMultipleButton {
+  padding: 10px 20px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.deleteMultipleButton:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+}
+
+.notificationsTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.notificationsTable th,
+.notificationsTable td {
+  border: 1px solid #ddd;
+  padding: 15px; /* Unified padding for symmetry */
+  text-align: center; /* Center all text */
+  vertical-align: middle; /* Center vertically */
+  font-size: 16px;
+}
+
+.notificationsTable th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+  color: #333;
+}
+
+.notificationsTable tr:nth-child(even) {
+  background-color: #f2f2f2; /* Add zebra-stripe pattern */
+}
+
+.notificationsTable tr:hover {
+  background-color: #e6f7ff; /* Highlight row on hover */
+  transition: background-color 0.3s;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px; /* Ensure spacing between buttons */
+}
+
+.actions button {
+  padding: 10px 15px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-flex; /* Center icons/text */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Edit button styles */
+.edit {
+  background-color: #007bff;
+  color: white;
+}
+
+.edit:hover {
+  background-color: #0056b3;
+  transition: background-color 0.3s;
+}
+
+/* Delete button styles */
+.delete {
+  background-color: #dc3545;
+  color: white;
+}
+
+.delete:hover {
+  background-color: #c82333;
+  transition: background-color 0.3s;
+}

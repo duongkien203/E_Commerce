@@ -1,0 +1,18 @@
+{
+    "name": "pc/backend",
+    "autoload": {
+        "psr-4": {
+            "Pc\\Backend\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "duongkien1103",
+            "email": "duongvankien398@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.9",
+        "twilio/sdk": "^8.3"
+    }
+}

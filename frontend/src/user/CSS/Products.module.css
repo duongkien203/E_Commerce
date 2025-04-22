@@ -1,0 +1,383 @@
+.containerProducts {
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  display: flex;
+}
+
+/* Styles cho phần bộ lọc */
+.fillterPanelContainer {
+  box-shadow: 2px 0px 4px rgba(0, 0, 0, 0.1);
+  flex: 0 0 11.875rem;
+  padding: 10px;
+  margin: 0 1.25rem 0 0;
+  min-width: 0;
+}
+
+.fillterPanelContainer h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.fillterPanelContainer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.fillterPanelContainer ul li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.fillterPanelContainer label {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.fillterPanelContainer ul li input {
+  margin-right: 10px;
+  accent-color: #4caf50; /* Màu sắc cho checkbox */
+}
+
+/* Style cho bộ lọc Giảm giá */
+.saleFilter {
+  margin-top: 20px;
+  padding: 10px 0px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.saleFilter h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.saleFilter div {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.saleFilter input[type="radio"] {
+  margin-right: 8px;
+  width: auto;
+}
+
+.saleFilter label {
+  font-size: 0.9rem;
+  color: #555;
+  cursor: pointer;
+}
+
+.saleFilter label:has(input[type="radio"]:checked) {
+  font-weight: bold;
+  color: #000;
+}
+
+.priceFilter {
+  margin-top: 30px;
+}
+
+.priceFilter input {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.priceFilter h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.fillterPanelContainer button {
+  background-color: #4caf50; /* Màu nền cho nút */
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.fillterPanelContainer button:hover {
+  background-color: #45a049;
+}
+
+.ratingFilter div {
+  display: flex;
+  align-items: center;
+}
+
+.ratingFilter input {
+  width: auto;
+  margin-right: 10px;
+}
+
+.clearFilterBtn {
+  background-color: #f44336 !important; /* Màu nền cho nút */
+  margin-top: 30px !important; /* Khoảng cách giữa nút và các phần tử khác */
+}
+
+.clearFilterBtn:hover {
+  background-color: #e53935 !important; /* Thay đổi màu khi hover */
+}
+
+.errorMessage {
+  color: #f44336; /* Màu đỏ cho thông báo lỗi */
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Sort */
+.sortPanelContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Khoảng cách giữa các phần tử */
+  align-items: center;
+}
+
+.sortPanelContainer h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.sortOption {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Khoảng cách giữa nhãn và dropdown */
+}
+
+.sortOption label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  margin-right: 5px; /* Khoảng cách giữa label và select */
+  white-space: nowrap;
+}
+
+.sortOption select {
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  min-width: 180px; /* Đảm bảo width của select đủ rộng */
+  background-color: #f8f8f8;
+  transition: all 0.3s ease;
+}
+
+.sortOption select:hover {
+  border-color: #007bff; /* Màu border khi hover */
+  background-color: #e9f4ff; /* Màu nền khi hover */
+}
+
+.rightContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-bottom: 50px;
+}
+
+.productContainer {
+  justify-content: center;
+}
+
+.productPage {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-content: flex-start;
+  gap: 10px;
+  background-color: white;
+}
+
+.productPage a {
+  text-decoration: none;
+  color: black;
+  grid-column: span 1;
+  margin-bottom: 10px;
+  padding: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.productPage a:hover {
+  border: 1px solid red;
+  transform: scale(1.03);
+}
+
+.product {
+  box-sizing: border-box;
+  height: 100%; /* Đảm bảo sản phẩm chiếm hết chiều cao của ô grid */
+  display: flex;
+  flex-direction: column;
+}
+
+.imageParent {
+  position: relative; /* Để img absolute bên trong */
+  width: 100%; /* Chiếm hết chiều ngang của ô grid */
+  padding-top: 100%; /* Tạo tỷ lệ 1:1, chiều cao bằng chiều ngang */
+  overflow: hidden; /* Ẩn phần ảnh thừa */
+}
+
+.productInfo img {
+  position: absolute; /* Đặt ảnh tuyệt đối trong khung */
+  top: 0;
+  left: 0;
+  width: 100%; /* Lấp đầy chiều ngang khung */
+  height: 100%; /* Lấp đầy chiều dọc khung */
+  object-fit: cover; /* Giữ tỷ lệ, cắt phần thừa */
+  object-position: center; /* Căn giữa ảnh */
+  padding-bottom: 1px; /* Giữ nguyên nếu cần */
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.productInfo p {
+  font-weight: normal;
+  font-size: 20px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+
+.priceRatingSoldQuantityParent {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-size: 18px;
+}
+
+.priceRatingSoldQuantityParent p {
+  margin: 3px 0;
+}
+
+.ratingSoldQuantityParent {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.priceParent {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  row-gap: 2px;
+  column-gap: 15px;
+}
+
+.salePrice {
+  color: red;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.sale {
+  width: 100px;
+  height: 30px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: #d70018;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.sale p {
+  margin: 0;
+  color: white;
+  text-align: center;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .productPage {
+    grid-template-columns: repeat(2, 1fr); /* 2 cột trên mobile */
+  }
+  .fillterPanelContainer {
+    display: none; /* Ẩn hoàn toàn phần bộ lọc trên mobile */
+  }
+
+  .rightContainer {
+    flex: 1 1 100%; /* Đảm bảo phần còn lại chiếm toàn bộ chiều rộng */
+    margin: 0; /* Loại bỏ margin nếu có */
+  }
+
+  .sortPanelContainer {
+    flex-direction: column; /* Sắp xếp các phần tử theo cột trên mobile */
+    align-items: flex-start; /* Căn trái các phần tử */
+    gap: 15px; /* Khoảng cách giữa các phần tử */
+    padding: 10px; /* Thêm padding cho dễ nhìn */
+    margin-bottom: 20px;
+  }
+
+  .sortOption {
+    width: 100%; /* Đảm bảo mỗi tùy chọn sắp xếp chiếm toàn bộ chiều rộng */
+  }
+
+  .sortOption label {
+    width: 20%;
+  }
+
+  .sortOption select {
+    width: 80%; /* Đảm bảo dropdown chiếm 80% chiều rộng còn lại */
+    min-width: auto; /* Loại bỏ min-width cố định */
+    max-width: 100%; /* Đảm bảo select không vượt quá chiều rộng của container */
+    overflow: hidden; /* Ẩn nội dung vượt quá */
+    text-overflow: ellipsis; /* Thêm dấu ... nếu nội dung bị cắt */
+    white-space: nowrap; /* Ngăn nội dung xuống dòng */
+  }
+
+  /* Ẩn hoặc cắt bớt nội dung của option nếu cần */
+  .sortOption select option {
+    white-space: nowrap; /* Ngăn option xuống dòng */
+    overflow: hidden; /* Ẩn nội dung vượt quá */
+    text-overflow: ellipsis; /* Thêm dấu ... nếu nội dung bị cắt */
+    max-width: 100%; /* Giới hạn chiều rộng tối đa của option */
+  }
+}
+
+/* Tablet */
+@media (min-width: 481px) and (max-width: 768px) {
+  .productPage {
+    grid-template-columns: repeat(3, 1fr); /* 3 cột trên tablet */
+  }
+}
+
+/* Laptop */
+@media (min-width: 769px) and (max-width: 1280px) {
+  .productPage {
+    grid-template-columns: repeat(4, 1fr); /* 4 cột trên laptop */
+  }
+}
+
+/* Desktop */
+@media (min-width: 1281px) {
+  .productPage {
+    grid-template-columns: repeat(5, 1fr); /* 5 cột trên desktop */
+  }
+}

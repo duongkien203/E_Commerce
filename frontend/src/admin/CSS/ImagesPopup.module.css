@@ -1,0 +1,146 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup {
+  background: white;
+  width: 550px;
+  padding: 20px;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.closeBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  padding: 5px;
+  font-size: 22px;
+  cursor: pointer;
+  color: #ee4d2d;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  border-radius: 5px;
+}
+
+.closeBtn:hover {
+  color: #d13924;
+  transform: rotate(90deg);
+}
+
+.imageList {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  max-height: 350px;
+  overflow-y: auto;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+
+.imageItem {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.imageItem:hover {
+  background-color: #fff6f4;
+  transform: scale(0.98);
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.radioLabel input[type="radio"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #ee4d2d;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.radioLabel input[type="radio"]:checked {
+  background-color: #ee4d2d;
+  border: 5px solid white;
+  box-shadow: 0 0 0 2px #ee4d2d;
+}
+
+.productImage {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 2px solid #ddd;
+  transition: all 0.3s;
+}
+
+.imageItem:hover .productImage {
+  border-color: #ee4d2d;
+}
+
+.defaultBadge {
+  background-color: rgba(238, 77, 45, 0.1);
+  border: 1px solid #ee4d2d;
+  border-radius: 4px;
+  color: #ee4d2d;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 3px 6px;
+  margin-left: 10px;
+}
+
+.deleteBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 5px;
+  border-radius: 5px;
+  margin-left: auto;
+  transition: all 0.3s ease;
+}
+
+.deleteBtn:hover {
+  background-color: #ee4d2d;
+  transform: scale(1.2);
+}

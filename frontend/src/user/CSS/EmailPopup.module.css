@@ -1,0 +1,167 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 350px;
+  width: 100%;
+  position: relative;
+}
+
+.fadeIn {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.popup h2 {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.popup input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #12cbc4; /* Mặc định viền xanh */
+  border-radius: 6px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease-in-out;
+}
+
+.popup input:focus {
+  border-color: #12cbc4; /* Giữ viền xanh khi nhập */
+  box-shadow: 0px 0px 6px rgba(18, 203, 196, 0.3);
+  outline: none;
+}
+
+/* Nếu blur mà lỗi thì chuyển sang viền đỏ */
+.errorInput {
+  border-color: red !important;
+  background-color: #ffe5e5;
+  animation: shake 0.3s ease-in-out;
+}
+
+/* Khi nhập bình thường (không check lỗi ngay) */
+.inputNormal {
+  border-color: #12cbc4 !important;
+  background-color: white;
+}
+
+.errorValidate {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* Style nút */
+.popup button {
+  background: transparent;
+  color: #4caf50;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 8px 16px;
+  border: 2px solid #4caf50;
+  border-radius: 6px;
+  transition: all 0.3s ease-in-out;
+  width: 50%;
+}
+
+.popup button:hover {
+  background: #4caf50;
+  color: white;
+}
+
+.popup button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* Style nút Đóng */
+.closeBtn {
+  background: #ff4444; /* Màu đỏ nhạt */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  transition: all 0.3s ease-in-out;
+  width: 50%;
+}
+
+.closeBtn:hover {
+  background: #cc0000; /* Màu đỏ đậm hơn khi hover */
+}
+
+/* Nút đóng (dấu ×) */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: red;
+}
+
+.responseMessage {
+  margin: 10px 0px;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 6px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.successMessage {
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+}
+
+.errorMessage {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+}
