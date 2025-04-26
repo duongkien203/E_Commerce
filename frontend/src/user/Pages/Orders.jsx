@@ -21,7 +21,7 @@ const Orders = () => {
   const [selectedInvoiceIdForRating, setSelectedInvoiceIdForRating] = useState(
     null
   );
-  const [confirmType, setConfirmType] = useState(null); // Phân biệt loại xác nhận
+  const [confirmType, setConfirmType] = useState(null);
 
   useEffect(() => {
     axios
@@ -64,7 +64,6 @@ const Orders = () => {
     if (activeTab === "pending ratings") {
       return;
     }
-
     const filtered = orders.filter((order) => {
       if (activeTab === "all") return true;
       if (activeTab === "pending payment")
@@ -76,7 +75,6 @@ const Orders = () => {
       if (activeTab === "cancelled") return order.status === "cancelled";
       return true;
     });
-
     setFilteredOrders(filtered);
   }, [activeTab, orders]);
 
@@ -111,7 +109,7 @@ const Orders = () => {
 
   const confirmPopup = (invoiceId, type) => {
     setSelectedInvoiceId(invoiceId);
-    setConfirmType(type); // "received" hoặc "cancel"
+    setConfirmType(type);
     setIsConfirmPopupOpen(true);
   };
 
@@ -245,123 +243,217 @@ const Orders = () => {
       <div className={styles.orderContent}>
         {activeTab === "pending ratings" ? (
           pendingRatings.length > 0 ? (
+            <>
+              {/* Table for Desktop */}
+              <table className={styles.orderTable}>
+                <thead>
+                  <tr>
+                    <th>Mã đơn</th>
+                    <th>Ngày nhận hàng</th>
+                    <th>Hình ảnh</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Giá</th>
+                    <th>Thao tác</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {pendingRatings.map((item) => (
+                    <tr key={item.pending_rating_id}>
+                      <td>{item.invoice_id}</td>
+                      <td>{item.created_at}</td>
+                      <td>
+                        <img
+                          src={item.image}
+                          alt={item.product_name}
+                          className={styles.productImage}
+                        />
+                      </td>
+                      <td>{item.product_name}</td>
+                      <td>{formatCurrency(item.price)}</td>
+                      <td>
+                        <button
+                          className={styles.rateButton}
+                          onClick={() =>
+                            handleRateProduct(item.product_id, item.invoice_id)
+                          }
+                        >
+                          Đánh giá
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              {/* Cards for Mobile */}
+              {pendingRatings.map((item) => (
+                <div className={styles.orderCard} key={item.pending_rating_id}>
+                  <div className={styles.orderCardHeader}>
+                    <span>Mã đơn: {item.invoice_id}</span>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: "10px",
+                      alignItems: "center",
+                    }}
+                  >
+                    <img
+                      src={item.image}
+                      alt={item.product_name}
+                      className={styles.productImage}
+                    />
+                    <div>
+                      <div>{item.product_name}</div>
+                      <div>{formatCurrency(item.price)}</div>
+                      <div>Ngày nhận: {item.created_at}</div>
+                    </div>
+                  </div>
+                  <div className={styles.orderCardActions}>
+                    <button
+                      className={styles.rateButton}
+                      onClick={() =>
+                        handleRateProduct(item.product_id, item.invoice_id)
+                      }
+                    >
+                      Đánh giá
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </>
+          ) : (
+            <p className={styles.noData}>Không có sản phẩm nào chờ đánh giá.</p>
+          )
+        ) : filteredOrders.length > 0 ? (
+          <>
+            {/* Table for Desktop */}
             <table className={styles.orderTable}>
               <thead>
                 <tr>
                   <th>Mã đơn</th>
-                  <th>Ngày nhận hàng</th>
-                  <th>Hình ảnh</th>
-                  <th>Tên sản phẩm</th>
-                  <th>Giá</th>
+                  <th>Ngày đặt</th>
+                  <th>Số lượng</th>
+                  <th>Giảm giá</th>
+                  <th>Tổng tiền</th>
+                  <th>Thanh toán</th>
+                  <th>Trạng thái</th>
                   <th>Thao tác</th>
                 </tr>
               </thead>
               <tbody>
-                {pendingRatings.map((item) => (
-                  <tr key={item.pending_rating_id}>
-                    <td>{item.invoice_id}</td>
-                    <td>{item.created_at}</td>
+                {filteredOrders.map((order, index) => (
+                  <tr
+                    key={order.invoice_id ? order.invoice_id : `order-${index}`}
+                  >
+                    <td>{order.invoice_id}</td>
+                    <td>{order.order_date}</td>
+                    <td>{order.item_total}</td>
+                    <td>{formatCurrency(order.discount)}</td>
+                    <td>{formatCurrency(order.amount_sum)}</td>
                     <td>
-                      <img
-                        src={item.image}
-                        alt={item.product_name}
-                        className={styles.productImage}
-                      />
+                      {order.payment_status === "unpaid"
+                        ? "Chưa thanh toán"
+                        : "Đã thanh toán"}
                     </td>
-                    <td>{item.product_name}</td>
-                    <td>{formatCurrency(item.price)}</td>
+                    <td
+                      className={
+                        order.status === "completed"
+                          ? styles.statusCompleted
+                          : order.status === "cancelled"
+                          ? styles.statusCancelled
+                          : styles.statusPending
+                      }
+                    >
+                      {getStatusInVietnamese(order.status)}
+                    </td>
                     <td>
-                      <button
-                        className={styles.rateButton}
-                        onClick={() =>
-                          handleRateProduct(item.product_id, item.invoice_id)
-                        }
-                      >
-                        Đánh giá
-                      </button>
+                      <div className={styles.buttonGroup}>
+                        <button
+                          className={styles.viewButton}
+                          onClick={() => openPopup(order.invoice_id)}
+                        >
+                          Xem thêm
+                        </button>
+                        {order.status === "shipping" && (
+                          <button
+                            className={styles.confirmButton}
+                            onClick={() =>
+                              confirmPopup(order.invoice_id, "received")
+                            }
+                          >
+                            Đã nhận
+                          </button>
+                        )}
+                        {(order.status === "pending payment" ||
+                          order.status === "pending confirmation") && (
+                          <button
+                            className={styles.cancelButton}
+                            onClick={() =>
+                              confirmPopup(order.invoice_id, "cancel")
+                            }
+                          >
+                            Hủy
+                          </button>
+                        )}
+                      </div>
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
-          ) : (
-            <p className={styles.noData}>Không có sản phẩm nào chờ đánh giá.</p>
-          )
-        ) : filteredOrders.length > 0 ? (
-          <table className={styles.orderTable}>
-            <thead>
-              <tr>
-                <th>Mã đơn</th>
-                <th>Ngày đặt</th>
-                <th>Số lượng</th>
-                <th>Giảm giá</th>
-                <th>Tổng tiền</th>
-                <th>Thanh toán</th>
-                <th>Trạng thái</th>
-                <th>Thao tác</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredOrders.map((order, index) => (
-                <tr
-                  key={order.invoice_id ? order.invoice_id : `order-${index}`}
-                >
-                  <td>{order.invoice_id}</td>
-                  <td>{order.order_date}</td>
-                  <td>{order.item_total}</td>
-                  <td>{formatCurrency(order.discount)}</td>
-                  <td>{formatCurrency(order.amount_sum)}</td>
-                  <td>
-                    {order.payment_status === "unpaid"
-                      ? "Chưa thanh toán"
-                      : "Đã thanh toán"}
-                  </td>
-                  <td
+            {/* Cards for Mobile */}
+            {filteredOrders.map((order) => (
+              <div className={styles.orderCard} key={order.invoice_id}>
+                <div className={styles.orderCardHeader}>
+                  <span>Mã đơn: {order.invoice_id}</span>
+                  <span
                     className={
                       order.status === "completed"
                         ? styles.statusCompleted
                         : order.status === "cancelled"
-                        ? styles.statusCancelled // Thêm class cho trạng thái hủy
+                        ? styles.statusCancelled
                         : styles.statusPending
                     }
                   >
                     {getStatusInVietnamese(order.status)}
-                  </td>
-                  <td>
-                    <div className={styles.buttonGroup}>
-                      <button
-                        className={styles.viewButton}
-                        onClick={() => openPopup(order.invoice_id)}
-                      >
-                        Xem thêm
-                      </button>
-                      {order.status === "shipping" && (
-                        <button
-                          className={styles.confirmButton}
-                          onClick={() =>
-                            confirmPopup(order.invoice_id, "received")
-                          }
-                        >
-                          Đã nhận
-                        </button>
-                      )}
-                      {(order.status === "pending payment" ||
-                        order.status === "pending confirmation") && (
-                        <button
-                          className={styles.cancelButton} // Thêm class mới nếu cần
-                          onClick={() =>
-                            confirmPopup(order.invoice_id, "cancel")
-                          }
-                        >
-                          Hủy
-                        </button>
-                      )}
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                  </span>
+                </div>
+                <div>Tổng tiền: {formatCurrency(order.amount_sum)}</div>
+                <div>Ngày đặt: {order.order_date}</div>
+                <div>
+                  Thanh toán:{" "}
+                  {order.payment_status === "unpaid"
+                    ? "Chưa thanh toán"
+                    : "Đã thanh toán"}
+                </div>
+                <div className={styles.orderCardActions}>
+                  <button
+                    className={styles.viewButton}
+                    onClick={() => openPopup(order.invoice_id)}
+                  >
+                    Xem thêm
+                  </button>
+                  {order.status === "shipping" && (
+                    <button
+                      className={styles.confirmButton}
+                      onClick={() => confirmPopup(order.invoice_id, "received")}
+                    >
+                      Đã nhận
+                    </button>
+                  )}
+                  {(order.status === "pending payment" ||
+                    order.status === "pending confirmation") && (
+                    <button
+                      className={styles.cancelButton}
+                      onClick={() => confirmPopup(order.invoice_id, "cancel")}
+                    >
+                      Hủy
+                    </button>
+                  )}
+                </div>
+              </div>
+            ))}
+          </>
         ) : (
           <p className={styles.noData}>Không có đơn hàng nào.</p>
         )}

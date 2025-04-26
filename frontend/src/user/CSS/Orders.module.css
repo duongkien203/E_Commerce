@@ -1,20 +1,26 @@
 .ordersContainer {
   width: 100%;
+  padding: 10px;
 }
 
 .orderTabs {
   display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 8px;
+  margin-bottom: 15px;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 5px;
 }
 
 .orderTabs button {
-  padding: 10px 15px;
+  padding: 8px 12px;
   border: none;
   cursor: pointer;
   background: #ddd;
   border-radius: 5px;
   transition: background 0.3s ease;
+  font-size: 14px;
+  flex-shrink: 0;
 }
 
 .orderTabs button.active {
@@ -30,9 +36,10 @@
 .orderContent {
   background: #fff;
   border-radius: 8px;
+  padding: 10px;
 }
 
-/* Bảng danh sách đơn hàng */
+/* Table Styles for Desktop */
 .orderTable {
   width: 100%;
   border-collapse: collapse;
@@ -43,6 +50,7 @@
   padding: 10px;
   border: 1px solid #ddd;
   text-align: center;
+  font-size: 14px;
 }
 
 .orderTable th {
@@ -50,12 +58,49 @@
   color: white;
 }
 
+.buttonGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* Card Styles for Mobile */
+.orderCard {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.orderCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.orderCardStatus {
+  font-weight: bold;
+}
+
+.orderCardActions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
 .statusPending {
-  color: orange; /* Màu cho trạng thái chưa hoàn thành, ví dụ */
+  color: orange;
 }
 
 .statusCompleted {
-  color: green; /* Màu xanh cho trạng thái hoàn thành */
+  color: green;
+}
+
+.statusCancelled {
+  color: #dc3545;
 }
 
 .noData {
@@ -63,93 +108,103 @@
   color: #e74c3c;
   font-weight: bold;
   padding: 20px;
+  font-size: 14px;
 }
 
-/* Common Styles for All Buttons */
-.orderTable button {
-  padding: 10px 15px;
+/* Button Styles */
+.orderTable button,
+.orderCard button {
+  padding: 8px 12px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 13px;
   transition: background 0.3s ease;
-  width: 120px; /* Ensures consistent width */
-  text-align: center;
 }
 
-/* Specific Styles for Each Button */
 .viewButton {
-  background: #28a745; /* Green */
+  background: #28a745;
   color: white;
-  margin-bottom: 5px;
 }
 
 .viewButton:hover {
-  background: #218838; /* Darker Green */
+  background: #218838;
 }
 
 .cancelButton {
-  background-color: #dc3545; /* Màu đỏ */
+  background: #dc3545;
   color: white;
 }
 
 .cancelButton:hover {
-  background-color: #c82333;
-}
-
-.statusCancelled {
-  color: #dc3545; /* Màu đỏ cho trạng thái "Đã hủy" */
+  background: #c82333;
 }
 
 .confirmButton {
-  background: #007bff; /* Blue */
+  background: #007bff;
   color: white;
 }
 
 .confirmButton:hover {
-  background: #0056b3; /* Darker Blue */
+  background: #0056b3;
 }
 
 .rateButton {
-  background: #f39c12; /* Orange for rating */
+  background: #f39c12;
   color: white;
 }
 
 .rateButton:hover {
-  background: #e67e22; /* Darker Orange */
+  background: #e67e22;
 }
 
-/* Style cho hình ảnh sản phẩm trong tab "Chờ đánh giá" */
+/* Product Image */
 .productImage {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   object-fit: cover;
   border-radius: 5px;
 }
 
-/* Responsive */
+/* Responsive Design */
 @media (max-width: 768px) {
   .orderTabs {
-    flex-direction: column;
+    padding-bottom: 10px;
   }
 
-  .orderTabs button {
+  .orderTable {
+    display: none; /* Hide table on mobile */
+  }
+
+  .orderContent {
+    padding: 5px;
+  }
+
+  .orderCard {
+    display: block; /* Show cards on mobile */
+  }
+
+  .orderCard button {
     width: 100%;
-  }
-
-  .orderTable th,
-  .orderTable td {
-    font-size: 14px;
     padding: 8px;
   }
 
-  .orderTable button {
-    width: 100px; /* Giảm chiều rộng nút trên mobile */
-    padding: 8px 10px;
+  .productImage {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (min-width: 769px) {
+  .orderCard {
+    display: none; /* Hide cards on desktop */
   }
 
-  .productImage {
-    width: 40px;
-    height: 40px;
+  .orderTable {
+    display: table; /* Show table on desktop */
+  }
+
+  .orderTable button {
+    width: 100px;
   }
 }
