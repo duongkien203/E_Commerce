@@ -247,3 +247,9 @@
   :global(.react-chatbot-kit-chat-message-container)::-webkit-scrollbar-thumb:hover {
   background: #999;
 }
+
+@media (max-width: 767px) {
+  .expandBtn {
+    display: none;
+  }
+}

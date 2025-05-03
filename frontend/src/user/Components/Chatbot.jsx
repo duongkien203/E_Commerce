@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Chatbot, { createChatBotMessage } from "react-chatbot-kit";
 import "react-chatbot-kit/build/main.css";
 import { FaTimes, FaExpand, FaCompress } from "react-icons/fa";
@@ -7,30 +7,44 @@ import styles from "../CSS/ChatSupport.module.css";
 import axios from "axios";
 
 // Component tùy chỉnh cho header
-const CustomHeader = ({ toggleChat, toggleExpand, isExpanded }) => (
-  <div
-    style={{
-      background: "#007bff",
-      color: "white",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "space-between",
-      height: "auto",
-      padding: "10px",
-      fontSize: "16px",
-    }}
-  >
-    <span>Trợ lý thân thiện của bạn</span>
-    <div style={{ display: "flex", gap: "10px" }}>
-      <button className={styles.expandBtn} onClick={toggleExpand}>
-        {isExpanded ? <FaCompress /> : <FaExpand />}
-      </button>
-      <button className={styles.closeBtn} onClick={toggleChat}>
-        <FaTimes />
-      </button>
+const CustomHeader = ({ toggleChat, toggleExpand, isExpanded }) => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return (
+    <div
+      style={{
+        background: "#007bff",
+        color: "white",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        height: "auto",
+        padding: "10px",
+        fontSize: "16px",
+      }}
+    >
+      <span>Trợ lý thân thiện của bạn</span>
+      <div style={{ display: "flex", gap: "10px" }}>
+        {!isMobile && (
+          <button className={styles.expandBtn} onClick={toggleExpand}>
+            {isExpanded ? <FaCompress /> : <FaExpand />}
+          </button>
+        )}
+        <button className={styles.closeBtn} onClick={toggleChat}>
+          <FaTimes />
+        </button>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 // Component nút tùy chọn (chỉ hiển thị, không tương tác)
 const OptionsButtons = () => (
@@ -128,7 +142,21 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
   const handleUserMessage = async (message) => {
     console.log("handleUserMessage:", message);
-    const lowerMessage = message.toLowerCase();
+    const trimmedMessage = message.trim(); // Trim to remove leading/trailing spaces
+    const lowerMessage = trimmedMessage.toLowerCase();
+
+    // Check if the message contains "xin chào"
+    if (lowerMessage.includes("xin chào")) {
+      const botMessage = createChatBotMessage(
+        "Chào bạn, mình có thể hỗ trợ gì cho bạn?",
+        { withAvatar: true }
+      );
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+      return; // Exit to prevent further processing
+    }
 
     if (lowerMessage === "gợi ý sản phẩm") {
       const botMessage = createChatBotMessage(
@@ -186,7 +214,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             }));
           } else {
             const botMessage = createChatBotMessage(
-              `Không tìm thấy sản phẩm nào gần giống với "${message}". Hãy thử từ khóa khác nhé!`,
+              `Không tìm thấy sản phẩm nào gần giống với "${trimmedMessage}". Hãy thử từ khóa khác nhé!`,
               { withAvatar: true }
             );
             setState((prev) => ({
