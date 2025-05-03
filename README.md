@@ -2,8 +2,8 @@ Hướng dẫn cài đặt & chạy dự án
 
 1. Clone source code về máy
 2. Chạy file e_commerce.sql bằng MySQL trong thư mục backend/database
-3. npm install      # Cài các package cần thiết
-4. cd frontend      # Chuyển sang thư mục frontend
+3. cd frontend      # Chuyển sang thư mục frontend
+4. npm install      # Cài các package cần thiết
 5. npm start        # Chạy ứng dụng React
 
 Tài khoản thanh toán trên môi trường Test (Sanbox)
