@@ -6,6 +6,12 @@ Hướng dẫn cài đặt & chạy dự án
 4. npm install      # Cài các package cần thiết
 5. npm start        # Chạy ứng dụng React
 
+6. /admin để vào trang quản trị
+
+7. Tài khoản quản trị: adminkien
+8. Tài khoản khách hàng: userminh, userhoanganh, userhuong, userhung
+9. Mật khẩu của các tài khoản: emkshop123
+
 Tài khoản thanh toán trên môi trường Test (Sanbox)
 
 VNPAY
